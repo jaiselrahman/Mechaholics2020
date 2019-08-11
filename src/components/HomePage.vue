@@ -112,7 +112,7 @@ export default {
 }
 
 .tagline {
-  margin: 0.5rem 10% 0 10%;
+  margin: 0.5rem 1rem 0 1rem;
   line-height: 1.1em;
   text-align: center;
 }
