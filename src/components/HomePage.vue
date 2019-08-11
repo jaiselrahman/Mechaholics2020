@@ -35,6 +35,38 @@
       </div>
     </a>
     <div class="card">
+      <div class="title">Contact us</div>
+      <hr />
+      <div class="tagline" style="font-size: 1.25rem">
+        <a href="mailto:flaminius2k19@gmail.com">flaminius2k19@gmail.com</a>
+      </div>
+      <div class="tagline">
+        <table class="contact-details">
+          <tr>
+            <td style="width:50%; text-align:start">President</td>
+            <td>:</td>
+            <td style="width:50%; text-align: end">
+              <a href="tel:+917904013122">&nbsp;&nbsp;+917904013122</a>
+            </td>
+          </tr>
+          <tr>
+            <td style="width:50%; text-align:start">Secretary</td>
+            <td>:</td>
+            <td style="width:50%; text-align:end">
+              <a href="tel:+916380667500">&nbsp;&nbsp;+916380667500</a>
+            </td>
+          </tr>
+          <tr>
+            <td style="width:50%; text-align:start">Event Coordinator</td>
+            <td>:</td>
+            <td style="width:50%; text-align:end">
+              <a href="tel:+919840543412">&nbsp;&nbsp;+919840543412</a>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="card">
       <div class="title">Download the app to view more details:</div>
       <hr />
       <a href="https://play.google.com/store/apps/details?id=app.flaminius.flaminius2k19">
@@ -117,6 +149,11 @@ export default {
   text-align: center;
 }
 
+.contact-details {
+  width: 100%;
+  margin: auto;
+}
+
 #logo-container {
   display: inline-block;
   height: 8em;
@@ -156,10 +193,18 @@ div.card {
   div.card {
     width: 80%;
   }
+
+  .contact-details {
+    width: 80%;
+  }
 }
 
 @media only screen and (min-width: 900px) {
   div.card {
+    width: 60%;
+  }
+
+  .contact-details {
     width: 60%;
   }
 }
@@ -168,6 +213,10 @@ div.card {
   div.card {
     width: 95%;
     margin-top: 1rem;
+  }
+
+  .contact-details {
+    width: 80%;
   }
 }
 </style>
