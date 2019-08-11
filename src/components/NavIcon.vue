@@ -1,39 +1,38 @@
 <template>
   <nav role="navigation" class="menu">
-      <li class="main-icon" key="main" @click="toggle()" ref="menu-bar">
-        <div class="container">
-          <div class="bar1" />
-          <div class="bar2" />
-          <div class="bar3" />
-        </div>
-      </li>
-    </nav>
+    <li class="main-icon" key="main" @click="toggle()" ref="menu-bar">
+      <div class="container">
+        <div class="bar1" />
+        <div class="bar2" />
+        <div class="bar3" />
+      </div>
+    </li>
+  </nav>
 </template>
 
 <script>
 export default {
-    name: "NavIcon",
-    data() {
-        return {
-            show: false
-        }
-    },
-    methods: {
-        toggle() {
-            this.$refs["menu-bar"].classList.toggle("change");
-            if(this.show) {
-                this.$emit('nav-icon', 'close');
-            } else {
-                this.$emit('nav-icon', 'open'); 
-            }
-            this.show = !this.show;
-        }
+  name: "NavIcon",
+  data() {
+    return {
+      show: false
+    };
+  },
+  methods: {
+    toggle() {
+      this.$refs["menu-bar"].classList.toggle("change");
+      if (this.show) {
+        this.$emit("nav-icon", "close");
+      } else {
+        this.$emit("nav-icon", "open");
+      }
+      this.show = !this.show;
     }
-}
+  }
+};
 </script>
 
 <style scoped>
-
 .menu {
   position: fixed;
   top: 0;
@@ -47,7 +46,7 @@ export default {
 }
 
 .main-icon {
-  background: #6f27ad;
+  background: #ef5350;
   display: block;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   border-radius: 50%;
@@ -97,5 +96,4 @@ export default {
 .change .bar3 {
   transform: rotate(45deg) translate(-5.5px, -6px);
 }
-
 </style>
