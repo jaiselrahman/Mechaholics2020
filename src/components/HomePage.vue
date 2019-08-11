@@ -4,7 +4,7 @@
       <img id="logo" :src="require('@/assets/f19-512.png')" />
     </div>
     <br />
-    <div class="card" style="margin-top: 2rem;">
+    <div class="card">
       <div class="name">Flaminius 2k19</div>
       <hr />
       <div class="tagline">
@@ -18,7 +18,7 @@
       </div>
     </div>
     <a href="https://goo.gl/maps/KC49HwqxuuVYNckn8" target="_blank">
-      <div class="card" style="margin-top: 2rem;">
+      <div class="card">
         <div class="title">Venue</div>
         <hr />
         <div class="tagline">
@@ -34,7 +34,7 @@
         ></iframe>
       </div>
     </a>
-    <div class="card" style="margin-top: 2rem;">
+    <div class="card">
       <div class="title">Download the app to view more details:</div>
       <hr />
       <a href="https://play.google.com/store/apps/details?id=app.flaminius.flaminius2k19">
@@ -45,7 +45,7 @@
         />
       </a>
     </div>
-    <div class="card" style="margin-top: 2rem;">
+    <div class="card">
       <div class="title">Follow us on</div>
       <hr />
       <div class="tagline">
@@ -72,7 +72,7 @@ export default {
 <style>
 #home-page {
   min-height: 90vh;
-  padding: 5vh 0;
+  padding: 1vh 0;
   background: #ef5350;
   background: -moz-linear-gradient(
     to bottom right,
@@ -148,6 +148,10 @@ export default {
   margin: 0 1.5rem;
 }
 
+div.card {
+  margin-top: 1.8rem;
+}
+
 @media only screen and (max-width: 900px) {
   div.card {
     width: 80%;
@@ -162,7 +166,8 @@ export default {
 
 @media only screen and (max-width: 700px) {
   div.card {
-    width: 90%;
+    width: 95%;
+    margin-top: 1rem;
   }
 }
 </style>

@@ -71,7 +71,6 @@ a:hover {
   background: white;
   border-radius: 2rem;
   color: black;
-  margin: 0 1px;
   padding: 1em 0;
   box-shadow: 0px 0px 1em 0.2em rgba(0, 0, 0, 0.329);
 }
