@@ -104,7 +104,7 @@ export default {
 <style>
 #home-page {
   min-height: 90vh;
-  padding: 1vh 0;
+  padding: 1vh 0 9vh 0;
   background: #ef5350;
   background: -moz-linear-gradient(
     to bottom right,

@@ -2,18 +2,21 @@
   <div id="app">
     <nav-icon @nav-icon="toggle" />
     <home-page />
+    <registration-page />
   </div>
 </template>
 
 <script>
 import NavIcon from "@/components/NavIcon.vue";
 import HomePage from "@/components/HomePage.vue";
+import RegistrationPage from "@/components/RegistrationPage.vue";
 
 export default {
   name: "App",
   components: {
     NavIcon,
-    HomePage
+    HomePage,
+    RegistrationPage
   },
   data() {
     return {
