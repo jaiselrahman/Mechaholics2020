@@ -17,6 +17,11 @@
         </bold>
       </div>
     </div>
+    <div class="card">
+      <div class="title">Starts in</div>
+      <hr />
+      <countdown-timer :end-time="new Date(2019, 8, 13, 9, 0, 0, 0)" style="margin-top: 1rem" />
+    </div>
     <a href="https://goo.gl/maps/KC49HwqxuuVYNckn8" target="_blank">
       <div class="card">
         <div class="title">Venue</div>
@@ -96,8 +101,13 @@
 </template>
 
 <script>
+import CountdownTimer from '@/components/CountdownTimer.vue'
+
 export default {
-  name: "HomePage"
+  name: "HomePage",
+  components: {
+    CountdownTimer
+  }
 };
 </script>
 
