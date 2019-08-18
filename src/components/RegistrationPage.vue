@@ -1,25 +1,29 @@
 <template>
   <div id="register">
-    <form class="form" @submit.prevent="submit">
-      <label class="label" for="Name">Name</label>
+    <form class="form">
+      <label class="label" for="Name">
+        {{ $v.$error && !$v.name.required ? 'Name is required' : 'Name' }}
+      </label>
       <input class="field" type="text" v-model="name" name="Name">
-      <div class="error" v-if="$v.$error && !$v.name.required">Name is required</div>
       <br>
-      <label class="label" for="Email">Email</label>
+      <label class="label" for="Email">
+        {{ $v.email.$error ? (!$v.email.required && 'Email is required' || !$v.email.email && 'Enter valid email') : 'Email' }}
+      </label>
       <input class="field" type="text" v-model="email" name="Email">
-      <div class="error" v-if="$v.$error && !$v.email.required">Email is required</div>
-      <div class="error" v-else-if="$v.$error && !$v.email.email">Enter valid email</div>
       <br>
-      <label class="label" for="Phone">Phone</label>
+      <label class="label" for="Phone">
+        {{ $v.phone.$error ? (!$v.phone.required && 'Phone is required' || !$v.phone.isValid && 'Enter valid phone number') : 'Phone' }}
+      </label>
       <input class="field" type="text" v-model="phone" name="Phone">
-      <div class="error" v-if="$v.$error && !$v.phone.required">Phone is required</div>
-      <div class="error" v-if="$v.$error && !($v.phone.numeric && $v.phone.isValidPhone)">Enter valid phone number</div>
       <br>
-      <label class="label" for="College">College</label>
+      <label class="label" for="College">
+        {{ $v.$error && !$v.college.required ? 'College is required' : 'College'}}
+        </label>
       <input class="field" type="text" v-model="college" name="College">
-      <div class="error" v-if="$v.$error && !$v.college.required">College is required</div>
       <br>
-      <label class="label" for="Department">Department</label>
+      <label class="label" for="Department">
+        {{ $v.$error && !$v.department.required ? 'Department is required' : 'Department' }}
+      </label>
       <select class="field" name="Department" v-model="department">
         <option disabled>Select Department</option>
         <option>B.Tech. IT</option>
@@ -28,27 +32,37 @@
         <option>B.C.A/M.C.A</option>
         <option>Others</option>
       </select>
-      <div class="error" v-if="$v.$error && !$v.department.required">Select your department</div>
       <br>
-      <label class="label" for="Food Preference">Food Preference</label>
+      <label class="label" for="Food Preference">
+       {{ $v.$error && !$v.foodPreference.required ? 'Food preference is required' : 'Food Preference' }}
+      </label>
       <select class="field" name="Food Preference" v-model="foodPreference">
         <option disabled>Veg./Non Veg.</option>
         <option>Veg</option>
-        <option>Non Veg</option>
+        <option>Non Veg</option>  
       </select>
-      <div class="error" v-if="$v.$error && !$v.foodPreference.required">Select food preference</div>
       <br>
-      <div v-if="submitStatus === 'OK'">Thanks for your registration!</div>
-      <button class="register-button" type="submit" :disabled="submitStatus === 'PENDING'">Register</button>
+      <div>
+        <div class="status" >{{ status }}</div>
+        <VueLoadingButton aria-label="Regsiter" class="register-button" :loading="loading" @click.native="submit" />
+      </div>
     </form>
   </div>
 </template>
 
 <script>
 import { required, email, numeric} from "vuelidate/lib/validators";
+import axios from "axios";
+
+import VueLoadingButton from 'vue-loading-button';
+
+const URL = "https://script.google.com/macros/s/AKfycbybm4JNQcwQJNuwnjiIfJzFBv3Uxizj1zrbGqtDuUrmZf3FPmVn/exec";
 
 export default {
   name: "RegistrationPage",
+  components: {
+    VueLoadingButton
+  },
   data() {
     return {
       name: "",
@@ -57,7 +71,8 @@ export default {
       college: "",
       department: "",
       foodPreference: "",
-      submitStatus: ""
+      loading: false,
+      status:""
     };
   },
   validations: {
@@ -71,7 +86,7 @@ export default {
     phone: {
       required,
       numeric,
-      isValidPhone(phone) {
+      isValid(phone) {
         return !!phone && phone.length === 10;
       }
     },
@@ -89,12 +104,32 @@ export default {
     submit() {
       this.$v.$touch();
       if (this.$v.$invalid) {
-        this.submitStatus = "ERROR";
+        this.status = "Please fix the above errors";
       } else {
-        this.submitStatus = "PENDING";
-        setTimeout(() => {
-          this.submitStatus = "OK";
-        }, 500);
+        this.loading = true;
+        this.status = "";
+        axios.get(URL, { params: {
+          "Name": this.name,
+          "Email": this.email,
+          "Phone": this.phone,
+          "College": this.college,
+          "Department": this.department,
+          "Food Preference": this.foodPreference
+        }}).then((res) => {
+          this.loading = false;
+          if(res.data.result == "success") {
+            this.status = "Registration Successful";
+          } else if(res.data.error === "email_already_exists") {
+            this.status = "Email id already exists";
+          } else if(res.data.error === "phone_already_exists") {
+            this.status = "Phone number already exists";
+          } else {
+            this.status = "Registration Failed!";
+          }
+        }).catch(() => {
+          this.loading = false;
+          this.status = "Registration Failed!";
+        })
       }
     }
   }
@@ -142,6 +177,14 @@ option {
 
 .error {
   color: #ef5350;
+  display:inline-block;
+}
+
+.status {
+  color: #ef5350;
+  float: left;
+  padding: 0.8rem 0;
+  font-size: 1.2rem;
 }
 
 .register-button {
@@ -157,6 +200,7 @@ option {
   margin: 0.5rem 0;
   background: #ef5350;
   box-shadow: 0px 0px 0.6rem 0.1rem rgba(0, 0, 0, 0.5);
+  float: right;
 }
 
 .register-button:active {
@@ -171,6 +215,9 @@ option {
 @media only screen and (max-width: 700px) {
   .form {
     width: 80%;
+  }
+  .status {
+    width: 100%;
   }
   .register-button {
     width: 100%;
