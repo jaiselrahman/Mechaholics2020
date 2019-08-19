@@ -5,16 +5,16 @@
     </div>
     <br />
     <div class="card">
-      <div class="name">Flaminius 2k19</div>
+      <h1 class="name">Flaminius 2k19</h1>
       <hr />
       <div class="tagline">
         A National Level Technical Symposium
         <br />By Department of Information Technology, Meenakshi College of Engineering
         <br />&amp; Society Of Information Technology Engineers
         <br />
-        <bold>
+        <b>
           <em>September 13, 2019</em>
-        </bold>
+        </b>
       </div>
     </div>
     <div class="card">
