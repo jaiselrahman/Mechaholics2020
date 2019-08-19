@@ -115,41 +115,12 @@ export default {
 #home {
   min-height: 90vh;
   padding: 1vh 0 9vh 0;
-  background: #ef5350;
-  background: -moz-linear-gradient(
-    to bottom right,
-    #c22926,
-    #ef5350 30% 70%,
-    #c22926
-  );
-  background: -webkit-linear-gradient(
-    to bottom right,
-    #c22926,
-    #ef5350 30% 70%,
-    #c22926
-  );
-  background: linear-gradient(
-    to bottom right,
-    #c22926,
-    #ef5350 30% 70%,
-    #c22926
-  );
   color: white;
   text-align: center;
 }
 
 .name {
   font-size: 2.5rem;
-  color: #ef5350;
-}
-
-.title {
-  font-size: 1.5rem;
-  text-align: start;
-  padding-left: 1rem;
-  padding-top: 1rem;
-  padding-bottom: 0.2rem;
-  text-shadow: 5rem black;
   color: #ef5350;
 }
 
