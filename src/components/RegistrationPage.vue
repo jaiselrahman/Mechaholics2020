@@ -218,6 +218,7 @@ option {
   }
   .status {
     width: 100%;
+    text-align: center;
   }
   .register-button {
     width: 100%;
