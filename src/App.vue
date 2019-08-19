@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <nav-icon @nav-icon="toggle" />
+    <nav-icon />
     <home-page />
     <registration-page />
   </div>
@@ -18,13 +18,6 @@ export default {
     HomePage,
     RegistrationPage
   },
-  data() {
-    return {
-      toggle(state) {
-        console.log("State", state);
-      }
-    };
-  }
 };
 </script>
 

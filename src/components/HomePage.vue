@@ -1,5 +1,5 @@
 <template>
-  <div id="home-page">
+  <div id="home">
     <div id="logo-container" class="card">
       <img id="logo" :src="require('@/assets/f19-512.png')" />
     </div>
@@ -112,7 +112,7 @@ export default {
 </script>
 
 <style>
-#home-page {
+#home {
   min-height: 90vh;
   padding: 1vh 0 9vh 0;
   background: #ef5350;

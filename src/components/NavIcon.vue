@@ -1,5 +1,5 @@
 <template>
-  <nav role="navigation" class="menu">
+  <div class="menu" is="transition-group" name="menus">
     <li class="main-icon" key="main" @click="toggle()" ref="menu-bar">
       <div class="container">
         <div class="bar1" />
@@ -7,7 +7,22 @@
         <div class="bar3" />
       </div>
     </li>
-  </nav>
+    <li class="menu-item item-one" key="one" v-show="show">
+      <a class="icon" href="#home" @click="toggle()" title="Home">
+        <img class="icon-one" :src="require('../assets/menu_home_48.png')">
+      </a>
+    </li>
+    <li class="menu-item item-two" key="two" v-show="show">
+      <a class="icon" href="#events" @click="toggle()" title="Events">
+        <img class="icon-two" :src="require('../assets/menu_events_48.png')">
+      </a>
+    </li>
+    <li class="menu-item item-three" key="three" v-show="show">
+      <a class="icon" href="#register" @click="toggle()" title="Register">
+        <img class="icon-three" :src="require('../assets/menu_register_48.png')">
+      </a>
+    </li>
+  </div>
 </template>
 
 <script>
@@ -21,11 +36,6 @@ export default {
   methods: {
     toggle() {
       this.$refs["menu-bar"].classList.toggle("change");
-      if (this.show) {
-        this.$emit("nav-icon", "close");
-      } else {
-        this.$emit("nav-icon", "open");
-      }
       this.show = !this.show;
     }
   }
@@ -43,6 +53,13 @@ export default {
   user-select: none;
   -webkit-tap-highlight-color: transparent;
   z-index: 2;
+}
+
+@media only screen and (max-width: 700px) {
+  .menu {
+    margin-left: 0.2rem;
+    margin-top: 0.2rem;
+  }
 }
 
 .main-icon {
@@ -95,5 +112,72 @@ export default {
 
 .change .bar3 {
   transform: rotate(45deg) translate(-5.5px, -6px);
+}
+
+.menu-item {
+  position: absolute;
+  top: 0;
+  left: -6.5rem;
+  width: 8rem;
+  z-index: -1;
+  transform-origin: right;
+}
+
+.item-one {
+  transform: rotate(180deg);
+}
+
+.item-two {
+  transform: rotate(225deg);
+}
+
+.item-three {
+  transform: rotate(270deg);
+}
+
+.icon {
+  display: block;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  background: #ef5350;
+  width: 2.8rem;
+  height: 2.8rem;
+}
+
+.icon > img {
+  width: inherit;
+  height: inherit;
+}
+
+.icon:active {
+  transform: scale(0.95);
+}
+
+.icon-one {
+  transform: rotate(-180deg);
+}
+
+.icon-two {
+  transform: rotate(-225deg);
+}
+
+.icon-three {
+  transform: rotate(-270deg);
+}
+
+.menus-enter-active {
+  transition: all 300ms ease-out;
+}
+
+.menus-leave-active {
+  transition: all 300ms ease-in;
+}
+
+.menus-enter {
+  transform: rotate(150deg);
+}
+
+.menus-leave-to {
+  transform: rotate(300deg);
 }
 </style>
