@@ -117,8 +117,8 @@ export default {
 .menu-item {
   position: absolute;
   top: 0;
-  left: -6.5rem;
-  width: 8rem;
+  left: -5.1rem;
+  width: 6.5rem;
   z-index: -1;
   transform-origin: right;
 }
