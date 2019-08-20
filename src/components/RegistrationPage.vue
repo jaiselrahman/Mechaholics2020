@@ -2,6 +2,7 @@
   <div id="register">
     <form class="form">
       <div class="status">Registration Fee Rs 250/-</div>
+      <br>
       <label class="label" for="Name">
         {{ $v.$error && !$v.name.required ? 'Name is required' : 'Name' }}
       </label>
