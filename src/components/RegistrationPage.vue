@@ -116,7 +116,8 @@ export default {
           "Phone": this.phone,
           "College": this.college,
           "Department": this.department,
-          "Food Preference": this.foodPreference
+          "Food Preference": this.foodPreference,
+          "Web": true
         }}).then((res) => {
           this.loading = false;
           if(res.data.result == "success") {
