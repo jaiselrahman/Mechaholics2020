@@ -23,7 +23,7 @@
 export default {
   name: "CountdownTimer",
   props: {
-    endTime: Number,
+    endTime: Date,
   },
   data() {
     return {
