@@ -14,6 +14,8 @@ import "bootstrap/dist/css/bootstrap.css";
 
 import SignIn from "@/components/SignIn";
 
+const firebaseAuth = firebase.auth();
+
 var Survey = SurveyVue.Survey;
 Survey.cssType = "bootstrap";
 
@@ -45,7 +47,8 @@ export default {
     };
   },
   created() {
-    firebase.auth().onAuthStateChanged(u => {
+    this.isSignedIn = firebaseAuth.currentUser != null;
+    firebaseAuth.onAuthStateChanged(u => {
       this.isSignedIn = !!u && u.currentUser !== null;
       if(!this.isSignedIn) {
         window.localStorage.removeItem(this.storageName);
