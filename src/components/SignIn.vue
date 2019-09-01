@@ -1,6 +1,6 @@
 <template>
-  <div style="margin:auto; margin-top: 5rem" class="text-center col-lg-6 col-md-8 col-md-10">
-    <form class="card" style="padding: 2rem;" @submit.prevent="signIn()" ref="form">
+  <div style="margin:auto; margin-top: 5rem" class="card text-center col-lg-6 col-md-8 col-sm-10">
+    <form style="padding: 2rem;" @submit.prevent="signIn()" ref="form">
       <input class="form-control" type="email" name="email" placeholder="Email Id" v-model="email">
       <br>
       <input
@@ -11,7 +11,7 @@
         v-model="password"
       >
       <br>
-      <input class="btn btn-primary" type="submit" value="SignIn">
+      <input class="btn btn-primary col-md-3 col-lg-3" type="submit" value="SignIn">
       <div class="tagline">{{ statusMessage }}</div>
     </form>
   </div>
