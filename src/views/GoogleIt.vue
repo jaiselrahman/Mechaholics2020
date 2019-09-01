@@ -15,6 +15,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import SignIn from "@/components/SignIn";
 
 const firebaseAuth = firebase.auth();
+const firestore = firebase.firestore();
 
 var Survey = SurveyVue.Survey;
 Survey.cssType = "bootstrap";
@@ -78,9 +79,14 @@ export default {
   },
   mounted() {
     this.survey.onComplete.add(survey => {
-      //   this.result = `Your score: ${this.survey.getCorrectedAnswerCount()}/${
-      //     this.survey.getQuizQuestions().length
-      //   }`;
+      firebase.firestore().collection('google-it').doc(firebaseAuth.currentUser.email).set(
+        {
+          name: firebaseAuth.currentUser.email,
+          score: this.survey.getCorrectedAnswerCount(),
+        }
+      ).catch(e => {
+        console.log(e);
+      });
 
       clearInterval(this.timerId);
       this.saveState(survey);
