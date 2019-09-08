@@ -51,7 +51,7 @@ export default {
     this.isSignedIn = firebaseAuth.currentUser != null;
     firebaseAuth.onAuthStateChanged(u => {
       this.isSignedIn = !!u && u.currentUser !== null;
-      if(!this.isSignedIn) {
+      if (!this.isSignedIn) {
         window.localStorage.removeItem(this.storageName);
       }
     });
@@ -61,9 +61,9 @@ export default {
       var res = {
         currentPageNo: survey.currentPageNo,
         data: survey.data,
-        timeSpent: survey.currentPage.timeSpent,
+        timeSpent: survey.currentPage.timeSpent
       };
-      
+
       window.localStorage.setItem(this.storageName, JSON.stringify(res));
     },
     loadState(survey) {
@@ -79,15 +79,18 @@ export default {
   },
   mounted() {
     this.survey.onComplete.add(survey => {
-      firebase.firestore().collection('google-it').doc(firebaseAuth.currentUser.email).set(
-        {
+      firestore
+        .collection("google-it")
+        .doc(firebaseAuth.currentUser.email)
+        .set({
           name: firebaseAuth.currentUser.email,
-          score: this.survey.getCorrectedAnswerCount(),
-        }
-      ).catch(e => {
-        console.log(e);
-      });
+          score: this.survey.getCorrectedAnswerCount()
+        })
+        .catch(e => {
+          console.log(e);
+        });
 
+      console.log({ score: this.survey.getCorrectedAnswerCount() });
       clearInterval(this.timerId);
       this.saveState(survey);
     });
@@ -105,6 +108,15 @@ export default {
     this.survey.onTimerPanelInfoText.add((sender, options) => {
       options.text = `Remining Time: ${sender.maxTimeToFinishPage -
         sender.currentPage.timeSpent}s`;
+    });
+
+    this.survey.onIsAnswerCorrect.add((sender, options) => {
+      let question = options.question;
+      if (Array.isArray(question.correctAnswer)) {
+        let answers = question.correctAnswer;
+        let value = question.value == null ? "" : question.value.toLowerCase();
+        options.result = answers.find(t => t == value) != null;
+      }
     });
   }
 };
