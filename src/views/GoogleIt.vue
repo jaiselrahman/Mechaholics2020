@@ -37,7 +37,7 @@ export default {
       startSurveyText: "Start Quiz",
       pages: questions,
       completedHtml:
-        '<h4 style="text-align:center">You have answered correctly <b>{correctedAnswers}</b> questions from <b>{questionCount}</b>.</h4>'
+        '<h4 style="text-align:center">Submission successful, Kindly wait for the results.</h4>'
     };
     var model = new SurveyVue.Model(json);
     return {
