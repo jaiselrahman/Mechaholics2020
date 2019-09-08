@@ -6,9 +6,11 @@
     <div class="events">
       <div class="card event" v-for="event in events" :key="event.name" v-bind="event">
         <img
+          v-gallery
           class="image"
-          :src="require('@/assets/' + event.image)"
-          :alt="event.name"
+          :src="require('@/assets/' + event.thumb)"
+          :alt="'Flaminius 2k19 | A National Level Technical Symposium at Chennai - ' + event.name"
+          :data-large="require('@/assets/' + event.image)"
           style="width:100%"
         >
         <div class="title">{{ event.name }}</div>
@@ -28,18 +30,84 @@ export default {
   data() {
     return {
       eventsData: [
-        { name: "Event 1", image: "f19-512.png", type: "Non Technical" },
-        { name: "Event 2", image: "f19-512.png", type: "Non Technical" },
-        { name: "Event 3", image: "f19-512.png", type: "Non Technical" },
-        { name: "Event 4", image: "f19-512.png", type: "Technical" },
-        { name: "Event 5", image: "f19-512.png", type: "Technical" },
-        { name: "Event 6", image: "f19-512.png", type: "Technical" },
-        { name: "Event 7", image: "f19-512.png", type: "Technical" },
-        { name: "Event 8", image: "f19-512.png", type: "Technical" },
-        { name: "Event 9", image: "f19-512.png", type: "Technical" },
-        { name: "Event 10", image: "f19-512.png", type: "Online" },
-        { name: "Event 11", image: "f19-512.png", type: "Online" },
-        { name: "Event 12", image: "f19-512.png", type: "Online" }
+        {
+          name: "Mock Interview",
+          thumb: "events/mock-interview-thumb.jpg",
+          image: "events/mock-interview.jpg",
+          type: "Non Technical"
+        },
+        {
+          name: "Connect Karo",
+          thumb: "events/connect-karo-thumb.jpg",
+          image: "events/connect-karo.jpg",
+          type: "Non Technical"
+        },
+        {
+          name: "Futsal",
+          thumb: "events/futsal-thumb.jpg",
+          image: "events/futsal.jpg",
+          type: "Non Technical"
+        },
+        {
+          name: "Paper Boat",
+          thumb: "events/paper-boat-thumb.jpg",
+          image: "events/paper-boat.jpg",
+          type: "Technical"
+        },
+        {
+          name: "Code Hunt",
+          thumb: "events/code-hunt-thumb.jpg",
+          image: "events/code-hunt.jpg",
+          type: "Technical"
+        },
+        {
+          name: "Techno Guess",
+          thumb: "events/techno-guess-thumb.jpg",
+          image: "events/techno-guess.jpg",
+          type: "Technical"
+        },
+        {
+          name: "Web Designing",
+          thumb: "events/web-designing-thumb.jpg",
+          image: "events/web-designing.jpg",
+          type: "Technical"
+        },
+        {
+          name: "Mind O Pedias",
+          thumb: "events/mind-o-pedias-thumb.jpg",
+          image: "events/mind-o-pedias.jpg",
+          type: "Technical"
+        },
+        {
+          name: "Google It",
+          thumb: "events/google-it-thumb.jpg",
+          image: "events/google-it.jpg",
+          type: "Technical"
+        },
+        {
+          name: "Covert Buggy",
+          thumb: "events/covert-buggy-thumb.jpg",
+          image: "events/covert-buggy.jpg",
+          type: "Technical"
+        },
+        {
+          name: "Snap It On",
+          thumb: "events/snap-it-on-thumb.jpg",
+          image: "events/snap-it-on.jpg",
+          type: "Online"
+        },
+        {
+          name: "Short Film",
+          thumb: "events/short-film-thumb.jpg",
+          image: "events/short-film.jpg",
+          type: "Online"
+        },
+        {
+          name: "PUBG",
+          thumb: "events/pubg-thumb.jpg",
+          image: "events/pubg.jpg",
+          type: "Online"
+        }
       ],
       events: this.eventsData
     };
