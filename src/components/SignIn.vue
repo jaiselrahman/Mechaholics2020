@@ -20,6 +20,8 @@
 <script>
 import firebase from "@/firebase";
 
+const firebaseAuth = firebase.auth();
+
 export default {
   name: "signIn",
   data() {
@@ -32,11 +34,22 @@ export default {
   },
   methods: {
     signIn() {
-      firebase
-        .auth()
-        .signInWithEmailAndPassword(this.email, this.password)
+      this.statusMessage = "";
+      if (this.password != "google-it") {
+        this.statusMessage = "Invalid Password";
+        return;
+      }
+      firebaseAuth
+        .createUserWithEmailAndPassword(this.email, this.password)
+        .then(r => {
+          console.log(r);
+        })
         .catch(e => {
-          this.statusMessage = e.message;
+          firebaseAuth
+            .signInWithEmailAndPassword(this.email, this.password)
+            .catch(e => {
+              this.statusMessage = e.message;
+            });
         });
     }
   }

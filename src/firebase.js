@@ -8,5 +8,4 @@ firebase.firestore().enablePersistence()
     .catch(function (err) {
         console.log(err);
     });
-
 export default firebase
