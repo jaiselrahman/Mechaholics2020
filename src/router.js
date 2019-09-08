@@ -12,15 +12,14 @@ export default new Router({
       path: '/',
       name: 'home',
       component: Home
-    },
-    {
-      path: '/google-it',
-      name: 'google-it',
-      component: () => import('./views/GoogleIt.vue')
     }, {
       path: '/google-it/result',
       name: 'google-it-result',
       component: () => import('./views/GoogleItResult.vue')
-    }
+    }, {
+      path: '/google-it/:set?',
+      name: 'google-it',
+      component: () => import('./views/GoogleIt.vue')
+    },
   ]
 })

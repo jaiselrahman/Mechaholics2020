@@ -45,6 +45,7 @@ export default {
           console.log(r);
         })
         .catch(e => {
+          console.log(e.message);
           firebaseAuth
             .signInWithEmailAndPassword(this.email, this.password)
             .catch(e => {

@@ -1,13 +1,14 @@
 <template>
   <div class="google-it">
     <sign-in v-if="!isSignedIn"/>
-    <survey v-else :survey="survey"></survey>
+    <survey v-else-if="!!survey" :survey="survey"></survey>
   </div>
 </template>
 
 <script>
 import firebase from "@/firebase";
-import questions from "@/questions";
+import questions1 from "@/questions1";
+import questions2 from "@/questions2";
 
 import * as SurveyVue from "survey-vue";
 import "bootstrap/dist/css/bootstrap.css";
@@ -27,6 +28,7 @@ export default {
     SignIn
   },
   data() {
+    var questions = this.$route.params.set == 2 ? questions2 : questions1;
     var json = {
       cookieName: "google-it-quiz",
       title: "Google It",
