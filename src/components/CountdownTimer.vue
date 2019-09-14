@@ -27,16 +27,16 @@ export default {
   },
   data() {
     return {
-      days: '',
-      hours: '',
-      minutes: '',
-      seconds: '',
+      days: '00',
+      hours: '00',
+      minutes: '00',
+      seconds: '00',
       timeInterval: Object
     };
   },
   mounted() {
-    this.updateClock();
-    this.timeInterval = setInterval(this.updateClock, 1000);
+    // this.updateClock();
+    // this.timeInterval = setInterval(this.updateClock, 1000);
   },
   methods: {
     getTimeRemaining(endtime) {
