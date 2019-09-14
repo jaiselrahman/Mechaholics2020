@@ -74,7 +74,7 @@ export default {
       department: "",
       foodPreference: "",
       loading: false,
-      status:""
+      status:"Registration closed!"
     };
   },
   validations: {
@@ -104,36 +104,36 @@ export default {
   },
   methods: {
     submit() {
-      this.$v.$touch();
-      if (this.$v.$invalid) {
-        this.status = "Please fix the above errors";
-      } else {
-        this.loading = true;
-        this.status = "";
-        axios.get(URL, { params: {
-          "Name": this.name,
-          "Email": this.email,
-          "Phone": this.phone,
-          "College": this.college,
-          "Department": this.department,
-          "Food Preference": this.foodPreference,
-          "Web": true
-        }}).then((res) => {
-          this.loading = false;
-          if(res.data.result == "success") {
-            this.status = "Registration Successful";
-          } else if(res.data.error === "email_already_exists") {
-            this.status = "Email id already exists";
-          } else if(res.data.error === "phone_already_exists") {
-            this.status = "Phone number already exists";
-          } else {
-            this.status = "Registration Failed!";
-          }
-        }).catch(() => {
-          this.loading = false;
-          this.status = "Registration Failed!";
-        })
-      }
+      // this.$v.$touch();
+      // if (this.$v.$invalid) {
+      //   this.status = "Please fix the above errors";
+      // } else {
+      //   this.loading = true;
+      //   this.status = "";
+      //   axios.get(URL, { params: {
+      //     "Name": this.name,
+      //     "Email": this.email,
+      //     "Phone": this.phone,
+      //     "College": this.college,
+      //     "Department": this.department,
+      //     "Food Preference": this.foodPreference,
+      //     "Web": true
+      //   }}).then((res) => {
+      //     this.loading = false;
+      //     if(res.data.result == "success") {
+      //       this.status = "Registration Successful";
+      //     } else if(res.data.error === "email_already_exists") {
+      //       this.status = "Email id already exists";
+      //     } else if(res.data.error === "phone_already_exists") {
+      //       this.status = "Phone number already exists";
+      //     } else {
+      //       this.status = "Registration Failed!";
+      //     }
+      //   }).catch(() => {
+      //     this.loading = false;
+      //     this.status = "Registration Failed!";
+      //   })
+      // }
     }
   }
 };
