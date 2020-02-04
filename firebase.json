@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "site": "mecholics2020",
+    "site": "mechaholics2020",
     "public": "dist",
     "ignore": [
       "firebase.json",

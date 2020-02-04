@@ -35,8 +35,8 @@ export default {
     };
   },
   mounted() {
-    // this.updateClock();
-    // this.timeInterval = setInterval(this.updateClock, 1000);
+    this.updateClock();
+    this.timeInterval = setInterval(this.updateClock, 1000);
   },
   methods: {
     getTimeRemaining(endtime) {

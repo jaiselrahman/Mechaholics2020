@@ -1,4 +1,4 @@
-# Flaminius2k19
+# Mechaholics 2020 Symposium
 
 ## Project setup
 ```

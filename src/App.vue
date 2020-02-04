@@ -1,9 +1,19 @@
 <template>
   <div id="app">
-    <router-view/>
+    <home/>
   </div>
 </template>
+<script>
 
+import Home from '@/views/Home.vue';
+
+export default {
+  name: "App",
+  components: {
+    Home
+  }
+}
+</script>
 <style >
 @import url("https://fonts.googleapis.com/css?family=Itim&display=swap");
 

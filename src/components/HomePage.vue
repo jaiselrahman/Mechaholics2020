@@ -1,26 +1,25 @@
 <template>
   <div id="home">
     <div id="logo-container" class="card">
-      <img id="logo" :src="require('@/assets/f19-512.png')" />
+      <img id="logo" :src="require('@/assets/logo.jpg')" />
     </div>
     <br />
     <div class="card">
-      <h1 class="name">Flaminius 2k19</h1>
+      <h1 class="name">Mechaholics 2020</h1>
       <hr />
       <div class="tagline">
         A National Level Technical Symposium
-        <br />By Department of Information Technology, Meenakshi College of Engineering
-        <br />&amp; Society Of Information Technology Engineers
+        <br />By Department of Mechanical Engineering, Meenakshi College of Engineering
         <br />
         <b>
-          <em>September 13, 2019</em>
+          <em>March 6, 2020</em>
         </b>
       </div>
     </div>
     <div class="card">
       <div class="title">Starts in</div>
       <hr />
-      <countdown-timer :end-time="new Date(2019, 8, 13, 9, 0, 0, 0)" style="margin-top: 1rem" />
+      <countdown-timer :end-time="new Date(2020, 2, 6, 9, 0, 0, 0)" style="margin-top: 1rem" />
     </div>
     <a href="https://goo.gl/maps/KC49HwqxuuVYNckn8" target="_blank">
       <div class="card">
@@ -43,7 +42,7 @@
       <div class="title">Contact us</div>
       <hr />
       <div class="tagline" style="font-size: 1.25rem">
-        <a href="mailto:flaminius2k19@gmail.com">flaminius2k19@gmail.com</a>
+        <a href="mailto:mechaholics2020@gmail.com">mechaholics2020@gmail.com</a>
       </div>
       <div class="tagline">
         <table class="contact-details">
@@ -72,28 +71,12 @@
       </div>
     </div>
     <div class="card">
-      <div class="title">Download the app to view more details:</div>
-      <hr />
-      <a href="https://play.google.com/store/apps/details?id=app.flaminius.flaminius2k19">
-        <img
-          class="google-play-icon"
-          alt="Get it on Google Play"
-          src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png"
-        />
-      </a>
-    </div>
-    <div class="card">
       <div class="title">Follow us on</div>
       <hr />
       <div class="tagline">
-        <a target="_blank" href="https://facebook.com/flaminius2k19">
-          <img class="follow-icon" :src="require('@/assets/facebook.svg')" />
-        </a>
-        <a target="_blank" href="https://instagram.com/flaminius2k19/">
+      
+        <a target="_blank" href="https://instagram.com/mechaholics_2020/">
           <img class="follow-icon" :src="require('@/assets/instagram.svg')" />
-        </a>
-        <a target="_blank" href="https://twitter.com/flaminius2k19">
-          <img class="follow-icon" :src="require('@/assets/twitter.svg')" />
         </a>
       </div>
     </div>
@@ -126,7 +109,7 @@ export default {
 
 .tagline {
   margin: 0.5rem 1rem 0 1rem;
-  line-height: 1.1em;
+  line-height: 1.2em;
   text-align: center;
 }
 
@@ -136,28 +119,27 @@ export default {
 }
 
 #logo-container {
-  display: inline-block;
   height: 8em;
   width: 8em;
   padding: 2rem;
   background: white;
-  text-align: center;
   border-radius: 50%;
 }
 
 #logo {
-  height: 100%;
-  width: 100%;
+  position: relative;
+  height: 145%;
+  width: 145%;
+  align-content: center;
+  border-radius: 50%;
+  left: -22.5%;
+  top: -22.5%;
 }
 
 .location-map {
   width: 90%;
   margin: 2% 5% 0 5%;
   height: 25rem;
-}
-
-.google-play-icon {
-  height: 5rem;
 }
 
 .follow-icon {
