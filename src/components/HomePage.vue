@@ -3,8 +3,7 @@
     <div id="logo-container" class="card">
       <img id="logo" :src="require('@/assets/logo.jpg')" />
     </div>
-    <br />
-    <div class="card">
+    <div class="card" style="margin-top: 1rem">
       <h1 class="name">Mechaholics 2020</h1>
       <hr />
       <div class="tagline">
@@ -119,21 +118,17 @@ export default {
 }
 
 #logo-container {
-  height: 8em;
-  width: 8em;
-  padding: 2rem;
+  height: 12rem;
+  width: 12rem;
+  padding: 0.2rem;
   background: white;
   border-radius: 50%;
 }
 
 #logo {
-  position: relative;
-  height: 145%;
-  width: 145%;
-  align-content: center;
+  height: 12rem;
+  width: 12rem;
   border-radius: 50%;
-  left: -22.5%;
-  top: -22.5%;
 }
 
 .location-map {
