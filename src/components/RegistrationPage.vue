@@ -34,14 +34,8 @@ export default {
   display: block;
   margin: auto;
   border: none;
-  width: 80%;
+  width: 100%;
   height: fit-content;
   min-height: 80vh;
-}
-
-@media only screen and (max-width: 700px) {
-  .form {
-    width: 100%;
-  }
 }
 </style>

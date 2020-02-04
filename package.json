@@ -14,7 +14,6 @@
   "dependencies": {
     "bootstrap": "^4.4.1",
     "core-js": "^2.6.11",
-    "firebase": "^6.6.2",
     "img-vuer": "^0.19.2",
     "register-service-worker": "^1.6.2",
     "vue": "^2.6.11"

@@ -10,9 +10,6 @@ fi
 echo "Installing firebase-tools"
 npm install -g firebase-tools
 
-echo "Creating firebaseConfig.js file"
-echo $FIREBASE_CONFIG >> src/firebaseConfig.js
-
 echo "Installing npm dependencies"
 npm install
 
